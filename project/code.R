@@ -1,4 +1,0 @@
-Gaming <- function() {
-   hands <- sample
-  
-}
