@@ -1,1 +1,53 @@
-print("heelo")  
+import random
+
+def game():
+    print("Hello welcome to Rock-Paper-Scissors game! ")
+    player_name = input("What is your name: ")
+    print(f"Hi {player_name}. Let's play game")
+
+    hands = ["rock","paper","scissors"]
+    player_score = 0
+    computer_score = 0
+    round = 0
+
+    while True:
+        game_playing = input("Do you want to play this game:").lower()
+
+        if game_playing == "yes":
+            round += 1
+            print(f"Round no.{round}")
+            player_hand = input("please choose one of these (paper, rock, scissors):")
+            computer_hand = random.choice(hands)
+
+            if player_hand == computer_hand:
+                print("Tie")
+                print(f"{player_name}'s hand : {player_hand}")
+                print(f"computer's hand: {computer_hand}")
+                computer_score += 0
+
+
+            elif player_hand == "scissors" and computer_hand == "rock"\
+            or player_hand == "rock" and computer_hand == "paper"\
+            or player_hand == "paper" and computer_hand == "scissors":
+                print("You lose")
+                computer_score += 1
+
+
+            elif player_hand == "scissors" and computer_hand == "paper"\
+                     or player_hand == "paper" and computer_hand == "rock"\
+                     or player_hand == "rock" and computer_hand == "scissors":
+                      print("You win")
+                      player_score += 1
+
+        elif game_playing == "no":
+            print("Game over")
+            print("This is a game result")
+            print(f"{player_name} score is {player_score}")
+            print(f"computer score is {computer_score}")
+            print("Thank you to play this game")
+            break
+
+        else:
+            print("Input is wrong. Please try again")
+
+game()
